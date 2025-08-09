@@ -12,9 +12,20 @@ type TaskCreation struct {
 	Description string `json:"description"`
 }
 
+type TaskUpdate struct {
+	Completed bool `json:"completed"`
+}
+
 var (
-	tasks  []Task
-	nextID = 1
+	tasks = []Task{
+		{
+			ID:          1,
+			Title:       "Sample Task",
+			Description: "This is a sample task",
+			Completed:   false,
+		},
+	}
+	nextID = 2
 )
 
 func GetAllTasks() []Task {
@@ -22,6 +33,7 @@ func GetAllTasks() []Task {
 }
 
 func AddTask(req TaskCreation) int {
+	//mapping request to new task
 	task := Task{
 		ID:          nextID,
 		Title:       req.Title,
@@ -30,6 +42,7 @@ func AddTask(req TaskCreation) int {
 	}
 
 	tasks = append(tasks, task)
+	//increase id when create successfully
 	nextID++
 
 	return task.ID

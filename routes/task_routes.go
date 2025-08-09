@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// TaskRoutes Api endpoint
 func TaskRoutes(router *gin.Engine) {
 
 	tasks := router.Group("/tasks")
