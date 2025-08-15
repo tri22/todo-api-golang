@@ -1,0 +1,5 @@
+/pkg
+/go.mod
+/main.go
+/go_build_GoProject.exe
+.gitignore
